@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+body {
+    font-family: "Lato", Arial, sans-serif;
+    font-weight: 400;
+    background-color: #f2f2f2;
+    min-width: 1020px;
+    margin: 0 auto;
+}
+
+.main {
+    background-color: #f2f2f2;
+}
+
+.wrapper {
+    width: 1020px;
+    margin: 0 auto;
+}
+
+.portfolio {
+    background-color: #2d303a;
+    border-bottom: 6px solid #323746;
+}
+
+.portfolio-wrapper {
+    padding: 63px 20px 20px 40px;
+}
+
+.portfolio-header {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    color: #666d89;
+}
+
+.portfolio-description {
+    margin-top: 21px;
+    font-size: 18px;
+    letter-spacing: -0.012em;
+    font-weight: 300;
+    color: #767e9e;
+    text-align: justify;
+    width: 690px;
+}
+
+.buttons-bar {
+    margin-top: 13px;
+    width: 290px;
+}
+
+.buttons-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    height: 22px;
+    display: inline-block;
+    text-align: center;
+    padding: 0 6px;
+    background-color: #0f0f0f;
+    border: 1.5px solid #666d89;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #767e9e;
+}
+
+.button:hover {
+    cursor: pointer;
+    color: #dedede;
+    border-color: #c5c5c5;
+}
+
+.portfolio-container {
+    display: grid;
+    max-height: 601px;
+    overflow: hidden;
+    margin-top: 19px;
+    margin-bottom: 47px;
+    grid-template-columns: repeat(4, 240px);
+    grid-template-rows: repeat(3, 207px);
+}
+
+.portfolio-items {
+    overflow: hidden;
+}
+
+.about_us {
+    padding-top: 5px;
+    background-color: #f2f2f2;
+    border-bottom: 6px solid #ffffff;
+}
+
+.about_us-wrapper {
+    padding: 57px 1px 1px 40px;
+}
+
+.about_us-header {
+    font-size: 30px;
+    font-weight: 900;
+    color: #666d89;
+}
+
+.about_us-description {
+    margin-top: 17px;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: -0.34px;
+    color: #767e9e;
+    width: 940px;
+}
+
+.about_us-container {
+    display: grid;
+    max-height: 600px;
+    overflow: hidden;
+    margin: 43px 0 63px 0px;
+    grid-template-columns: 319px 321px 320px;
+    grid-template-rows: 300px 111px 35px;
+}
+
+.about_us-profiles {
+    padding-top: 18px;
+}
+
+.about_us-profile-name {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 900;
+    color: #666d89;
+    text-align: justify;
+    width: 130px;
+    display: inline-block;
+    letter-spacing: -0.049px;
+}
+
+.about_us-profile-description {
+    font-size: 12px;
+    line-height: 21px;
+    letter-spacing: 0.01px;
+    color: #767e9e;
+    margin-top: 8px;
+    width: 300px;
+    text-align: justify;
+}
+
+.about_us-items-Adam > .about_us-profile-description {
+    letter-spacing: -0.012em;
+}
+
+.about_us-items-Adam-socials,
+.about_us-items-Desmond-socials {
+    padding-left: 1px;
+}
+
+.about_us-socials-icon {
+    margin-right: 4px;
+}
+
+.about_us-socials-icon:hover {
+    cursor: pointer;
+}
