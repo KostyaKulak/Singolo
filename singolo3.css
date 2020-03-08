@@ -85,13 +85,19 @@ body {
 }
 
 .contacts-form-input[type=submit] {
-    width: 300px;
+    width: 200px;
+    font-size: 1.2em;
     margin: 0 auto;
 }
 
 .contacts-form-input::placeholder,
 .contacts-form-textarea::placeholder {
     color: #f48c8f;
+}
+
+.contacts-form-input:focus,
+.contacts-form-textarea:focus {
+    outline: none;
 }
 
 .contacts-item-contacts-info {

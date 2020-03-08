@@ -44,7 +44,6 @@ body {
     width: 372px;
     padding-top: 7px;
     padding-right: 9px;
-    float: right;
     font-size: 12px;
 }
 
@@ -100,18 +99,12 @@ body {
 
 .slider .arrow_left {
     background: url('./assets/img/arrow_left.png') no-repeat;
-    left: 42px;	
-    zoom: 1;
-	filter: alpha(opacity=50);
-	opacity: 0.5;
+    left: 42px;
 }
 
 .slider .arrow_right {
     background: url('./assets/img/arrow_right.png') no-repeat;
     right: 36px;
-    zoom: 1;
-	filter: alpha(opacity=50);
-	opacity: 0.5;
 }
 
 .slider .apple {
@@ -191,7 +184,7 @@ body {
 }
 
 .content > .container > .Ideas {
-    background: url("./assets/img/lightbulb.png") no-repeat 0px 3.5px;
+    background: url("./assets/img/ideas.png") no-repeat 0px 3.5px;
     padding-left: 80px;
 }
 
@@ -290,4 +283,10 @@ body {
     line-height: 21px;
     font-weight: 400;
     letter-spacing: -0.35px;
+}
+
+.transparent {
+	zoom: 1;
+	filter: alpha(opacity=50);
+	opacity: 0.5;
 }

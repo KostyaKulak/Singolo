@@ -15,9 +15,9 @@
                     <p class="contacts-description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
                     <div class="contacts-container">
                         <div class="contacts-item-form">
-                            <form action="#" method="GET" class="contacts-form">
-                                <input class="contacts-form-input" type="text" name="name" placeholder="Name (Required)" pattern="([A-Za-z\sА-Яа-яЁё])+" required>
-                                <input class="contacts-form-input" type="email" name="email" placeholder="Email (Required)" pattern="([A-Za-z0-9._-])+@([A-Za-z0-9-_])+\.([a-z]){2,3}" required>
+                            <form action="#" method="POST" class="contacts-form">
+                                <input class="contacts-form-input" type="text" name="name" placeholder="Name (Required)" pattern="([A-Za-z\sА-Яа-яЁё])+" title="Username may consist only letters and spaces" required>
+                                <input class="contacts-form-input" type="email" name="email" placeholder="Email (Required)" pattern="([A-Za-z0-9._-])+@([A-Za-z0-9-_])+\.([a-z]){2,3}" title="Email must be in format <username>@<domain>" required>
                                 <input class="contacts-form-input" type="text" name="subject" placeholder="Subject">
                                 <textarea  class="contacts-form-textarea" name="message" placeholder="Describe your project in detail..."></textarea>
                                 <input class="contacts-form-input" type="submit" value="Send">
@@ -42,7 +42,7 @@
                 <div class="footer-social-icons">
                     <img  class="footer-socials-icon" src="./assets/img/facebook.png" alt="facebook" width="32" height="32">
                     <img  class="footer-socials-icon" src="./assets/img/google+.png" alt="google" width="32" height="32">
-                    <img  class="footer-socials-icon" src="./assets/img/twitter.png" alt="twitter" width="32" height="32">
+                    <img  class="footer-socials-icon" src="./assets/img/twitter-icon.png" alt="twitter" width="32" height="32">
                     <img  class="footer-socials-icon" src="./assets/img/linkedin.png" alt="linkedin" width="32" height="32">
                 </div>
             </div>
