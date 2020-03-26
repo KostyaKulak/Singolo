@@ -16,27 +16,27 @@ window.onload = () => {
     elList.forEach(el => {
       if ((el.offsetTop) <= curPos && (el.offsetTop + el.offsetHeight - 60) > curPos) {
         menuList.forEach(li => {
-          li.classList.remove('menu_active');
+          li.classList.remove('navigation_active');
           if (el.getAttribute('id') === li.querySelector('a').getAttribute('href').substring(1)) {
-            li.classList.add('menu_active');
+            li.classList.add('navigation_active');
           }
         });
       }
     });
 
     if (document.documentElement.scrollTop + document.documentElement.clientHeight === document.documentElement.scrollHeight) {
-      MENU.querySelector('li.menu_active').classList.remove('menu_active');
-      menuList[menuList.length - 1].classList.add('menu_active');
+      MENU.querySelector('li.navigation_active').classList.remove('navigation_active');
+      menuList[menuList.length - 1].classList.add('navigation_active');
     }
-    if (MENU.querySelector('li.menu_active') === null) {
-      menuList[0].classList.add('menu_active');
+    if (MENU.querySelector('li.navigation_active') === null) {
+      menuList[0].classList.add('navigation_active');
     }
   });
 
   // Slider. Переключение слайдов
   const SLIDER = document.getElementById('slider')
   let slidesStart = document.querySelectorAll('.slide_single')
-  const SLIDER_WIDTH = 830
+  const SLIDER_WIDTH = SLIDER.offsetWidth
   let current = 0
   let sliderBlocked = false
 
@@ -88,35 +88,22 @@ window.onload = () => {
   slider_init()
 
   // Slider. Активация экранов телефонов
-  document.getElementById('iPhone_Vert').addEventListener('click', event => {
-    const display = document.getElementById('iPhone_Vert').querySelector('div')
-    if (display.classList.contains('display-off')) {
-      display.classList.remove('display-off')
-    } else {
-      display.classList.add('display-off')
-    }
+  const IPHONEs = [document.getElementById('iPhone_Vert').querySelector('img'), document.getElementById('iPhone_Hor').querySelector('img')];
+  IPHONEs.forEach(iPhone => iPhone.addEventListener('click', event => {
+    iPhone.classList.toggle('phone-disp-off');
     event.preventDefault()
-  })
-  document.getElementById('iPhone_Hor').addEventListener('click', event => {
-    const display = document.getElementById('iPhone_Hor').querySelector('div')
-    if (display.classList.contains('display-off')) {
-      display.classList.remove('display-off')
-    } else {
-      display.classList.add('display-off')
-    }
-    event.preventDefault()
-  })
+  }));
 
   // Portfolio. Переключение табов
-  let imageDivs = document.querySelectorAll('.portfolio-items')
-  let buttons = document.querySelectorAll('.button')
+  let imageDivs = document.querySelectorAll('.portfolio-image')
+  let buttons = document.querySelectorAll('.buttons-bar button')
   let imgIndex = 0
   buttons.forEach(it => it.addEventListener('click', handleClickButton, false))
 
   function handleClickButton(e) {
     let item = e.target
-    buttons.forEach(btn => btn.classList.remove('button-active'))
-    item.classList.add('button-active')
+    buttons.forEach(btn => btn.classList.remove('button_active'))
+    item.classList.add('button_active')
     let imgParent = imageDivs[0].parentNode
     imageDivs.forEach(img => {
       imgParent.removeChild(img)
@@ -143,40 +130,38 @@ window.onload = () => {
 
   function handleClickImage(e) {
     let item = e.target
-    images.forEach(a => a.classList.remove('image-selected'))
-    item.classList.add('image-selected')
+    images.forEach(a => a.classList.remove('portfolio-selected'))
+    item.classList.add('portfolio-selected')
     e.preventDefault()
   }
 
   // Get a quote
-  const FORM = document.getElementById('contacts-form')
+  const FORM = document.getElementById('contacts-form');
   FORM.addEventListener('submit', event => {
-    event.preventDefault()
-    if (FORM.checkValidity()) {
-      document.getElementById('pop-up-subject').innerHTML
-        = (document.getElementById('form-input-subject').value) ? '<b>Тема:</b> '
-          + document.getElementById('form-input-subject').value : 'Без темы'
-      document.getElementById('pop-up-message').innerHTML
-        = (document.getElementById('form-area-message').value) ? '<b>Описание:</b> '
-          + ((document.getElementById('form-area-message').value.length > 230) ?
-            document.getElementById('form-area-message').value.substring(0, 230) + '...'
-            : document.getElementById('form-area-message').value) : 'Без описания'
-      document.getElementById('pop-up-msg').classList.remove('pop-up-hidden')
-    }
-    FORM.reset()
-    return false
-  })
+    event.preventDefault();
+    document.getElementById('pop-up-subject').innerHTML = (document.getElementById('form-input-subject').value) ? '<b>Тема:</b> ' + ((document.getElementById
+      ('form-input-subject').value.length > 100) ? document.getElementById('form-input-subject').value.substring(0, 100) + '...' : document.getElementById
+        ('form-input-subject').value) : 'Без темы';
+    document.getElementById('pop-up-message').innerHTML = (document.getElementById('form-area-message').value) ? '<b>Описание:</b> ' + ((document.getElementById
+      ('form-area-message').value.length > 230) ? document.getElementById('form-area-message').value.substring(0, 230) + '...' : document.getElementById('form-area-message')
+        .value) : 'Без описания';
+    document.getElementById('pop-up_msg').classList.remove('pop-up_hidden');
+    FORM.reset();
+    return false;
+  });
 
-  const POP_UP = document.getElementById('pop-up-msg')
-  const POP_UP_CLOSE = document.getElementById('btn-close')
-
+  const POP_UP_BLOCK = document.getElementById('pop-up_msg');
+  const POP_UP_CLOSE = document.getElementById('btn-close');
   function popup_close(event) {
-    if (event.target === POP_UP || event.target === POP_UP_CLOSE) {
-      POP_UP.classList.add('pop-up-hidden')
+    if (event.target === POP_UP_BLOCK || event.target === POP_UP_CLOSE) {
+      POP_UP_BLOCK.classList.add('pop-up_hidden');
     }
   }
+  POP_UP_BLOCK.addEventListener('click', popup_close);
+  POP_UP_CLOSE.addEventListener('click', popup_close);
 
-  POP_UP.addEventListener('click', popup_close)
-  POP_UP_CLOSE.addEventListener('click', popup_close)
-
+  window.addEventListener('resize', () => {
+    sliderWidth = SLIDER.offsetWidth;
+    slider_init();
+  });
 }
